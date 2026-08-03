@@ -80,26 +80,26 @@ jobs:
       # ----------------------------------------------------------------
       # Python for cognitive / AGI component development
       # ----------------------------------------------------------------
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: "pip"
-
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          # Install any requirements files found in the repo
-          REQ_FILES=$(find ${{ github.workspace }} -maxdepth 3 -name "requirements*.txt")
-          if [ -n "$REQ_FILES" ]; then
-            echo "Found requirements files: $REQ_FILES"
-            for f in $REQ_FILES; do
-              echo "Installing from $f"
-              pip install -r "$f"
-            done
-          else
-            echo "No requirements*.txt files found – skipping"
-          fi
+#      - name: Set up Python
+#        uses: actions/setup-python@v5
+#        with:
+#          python-version: "3.11"
+#          cache: "pip"
+#
+#      - name: Install Python dependencies
+#        run: |
+#          python -m pip install --upgrade pip
+#          # Install any requirements files found in the repo
+#          REQ_FILES=$(find ${{ github.workspace }} -maxdepth 3 -name "requirements*.txt")
+#          if [ -n "$REQ_FILES" ]; then
+#            echo "Found requirements files: $REQ_FILES"
+#            for f in $REQ_FILES; do
+#              echo "Installing from $f"
+#              pip install -r "$f"
+#            done
+#          else
+#            echo "No requirements*.txt files found – skipping"
+#          fi
 
       # ----------------------------------------------------------------
       # Verify the environment is fully functional
